@@ -37,14 +37,14 @@ if (QUAZIP_USE_QT_ZLIB AND BUILD_SHARED_LIBS)
 endif()
 
 # Set the default value of `${QUAZIP_QT_MAJOR_VERSION}`.
-# We search quietly for Qt6 and Qt5 in that order.
+# We search quietly for Qt6 (and Qt5 in that order).
 find_package(
-  QT NAMES Qt6 Qt5
+  QT NAMES Qt6
   QUIET COMPONENTS Core
 )
-if (NOT QT_FOUND)
-    set(QT_VERSION_MAJOR 6)
-endif()
+#if (NOT QT_FOUND)
+set(QT_VERSION_MAJOR 6)
+#endif()
 
 set(QUAZIP_QT_MAJOR_VERSION ${QT_VERSION_MAJOR} CACHE STRING "Qt version to use (6 or 5), defaults to ${QT_VERSION_MAJOR}")
 
